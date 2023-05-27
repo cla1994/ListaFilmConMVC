@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ListaFilmConMVC.Models.Film>
+
+@{
+    ViewData["Title"] = "Index";
+
+    int pagenum = ViewBag.pagenum;
+
+    int pagesize = ViewBag.pagesize;
+
+    int prevpage = pagenum - 1;
+
+    int nextpage = pagenum + 1;
+
+
+}
+
+
+
+<a asp-route-pagenum="@prevpage"> previous page</a>
+
+<a asp-route-pagenum="@nextpage"> next page</a>
+
+
+
+@foreach (var poke in @Model)
+{
+
+    @await Html.PartialAsync("_FilmPartial.cshtml", poke)
+
+}
+
+
